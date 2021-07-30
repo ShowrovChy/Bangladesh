@@ -1,0 +1,74 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container {
+  width: 400px;
+  height: 340px;
+  margin: 100px auto;
+  position: relative;
+}
+.pride {
+  height: 90px;
+  padding: 10px;
+  font-size: 4em;
+  visibility: hidden;
+  text-transform: uppercase;
+}
+.container:hover .pride {
+  visibility: visible;
+}
+.rectangle {
+  margin: 0 auto;
+  width: 400px;
+  height: 240px;
+  background-color: skyblue;
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px;
+}
+.rectangle::before {
+  content: "";
+  height: 240px;
+  width: 50%;
+  background-color: green;
+  display: inline-block;
+  position: absolute;
+  left: -50%;
+  transition: all 0.5s;
+  z-index: 1;
+}
+.rectangle::after {
+  content: "";
+  height: 240px;
+  width: 50%;
+  background-color: green;
+  display: inline-block;
+  position: absolute;
+  right: -50%;
+  transition: all 0.5s;
+  z-index: 1;
+}
+.rectangle:hover::before {
+  left: 0;
+}
+.rectangle:hover::after {
+  right: 0;
+}
+.circle {
+  height: 190px;
+  width: 190px;
+  background-color: red;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  z-index: 2;
+  visibility: hidden;
+  transition: all 0s ease-in-out 0.4s;
+}
+.rectangle:hover .circle {
+  visibility: visible;
+}
